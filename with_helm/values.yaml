@@ -1,0 +1,7 @@
+deployments:
+- name: foo
+  replicas: 1
+- name: bar
+  replicas: 3
+- name: baz
+  replicas: 5

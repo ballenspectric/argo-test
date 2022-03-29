@@ -1,0 +1,26 @@
+{{- range $.Values.deployments }}
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: hello-{{ .name }}
+
+spec:
+  replicas: {{ .replicas }}
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: hello-{{ .name }}
+  template:
+    metadata:
+      labels:
+        app: hello-{{ .name }}
+    spec:
+      containers:
+      - image: ghcr.io/ballenspectric/hello-world-webserver:master
+        name: hello-{{ .name }}
+        ports:
+        - containerPort: 8080
+        env:
+        - name: WHO
+          value: {{ .name }}
