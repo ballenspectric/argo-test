@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: hello-foo
+
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: hello-foo
+  template:
+    metadata:
+      labels:
+        app: hello-foo
+    spec:
+      containers:
+      - image: ghcr.io/ballenspectric/hello-world-webserver:master
+        name: hello-foo
+        ports:
+        - containerPort: 8080
+        env:
+        - name: WHO
+          value: foo
