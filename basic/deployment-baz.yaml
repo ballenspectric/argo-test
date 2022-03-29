@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: hello-baz
+
+spec:
+  replicas: 5
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: hello-baz
+  template:
+    metadata:
+      labels:
+        app: hello-baz
+    spec:
+      containers:
+      - image: ghcr.io/ballenspectric/hello-world-webserver:master
+        name: hello-baz
+        ports:
+        - containerPort: 8080
+        env:
+        - name: WHO
+          value: baz
