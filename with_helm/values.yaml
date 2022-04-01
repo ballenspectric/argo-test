@@ -4,5 +4,7 @@ deployments:
   zones: [zone1]
 - name: bar
   replicas: 2
+  zones: [zone1, zone2]
 - name: baz
   replicas: 2
+  zones: [zone2]
