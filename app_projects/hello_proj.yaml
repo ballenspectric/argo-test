@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: hello_proj
+  name: hello-proj
   namespace: argocd
 
 spec:
