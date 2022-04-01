@@ -24,7 +24,10 @@ spec:
             - matchExpressions:
               - key: topology.kubernetes.io/zone
                 operator: In
-                values: {{ .zones }}
+                values: 
+                  {{- range .zones }}
+                  - {{ . }}
+                  {{- end }}
       containers:
       - image: ghcr.io/ballenspectric/hello-world-webserver:master
         name: hello-{{ .name }}
