@@ -19,6 +19,14 @@ spec:
       labels:
         app: hello-{{ .name }}
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: topology.kubernetes.io/zone
+                operator: In
+                values: {{ .zones }}
       containers:
       - image: ghcr.io/ballenspectric/hello-world-webserver:master
         name: hello-{{ .name }}
