@@ -1,6 +1,7 @@
 deployments:
 - name: foo
   replicas: 2
+  zones: [zone1]
 - name: bar
   replicas: 2
 - name: baz

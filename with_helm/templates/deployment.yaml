@@ -12,6 +12,8 @@ spec:
   selector:
     matchLabels:
       app: hello-{{ .name }}
+    matchExpressions:
+      - {key: topology.kubernetes.io/zone, operator: In, values: {{ .zones }}}
   template:
     metadata:
       labels:
