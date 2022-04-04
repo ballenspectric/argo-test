@@ -1,5 +1,4 @@
 {{- range $.Values.deployments }}
-{{- if has topology.kubernetes.io/zone .zones }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -37,5 +36,4 @@ spec:
         env:
         - name: WHO
           value: {{ .name }}
-{{- end }}
 {{- end }}
