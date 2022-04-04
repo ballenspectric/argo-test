@@ -1,14 +1,18 @@
 deployments:
-- name: foo
+- name: alice
   replicas: 2
   zones:
   - zone1
-- name: bar
+- name: bob
   replicas: 2
   zones:
   - zone1
   - zone2
-- name: baz
+- name: charlie
   replicas: 2
   zones:
   - zone2
+- name: dave
+  replicas: 2
+  zones:
+  - zone3
