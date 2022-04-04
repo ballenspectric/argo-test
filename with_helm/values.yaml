@@ -9,10 +9,6 @@ deployments:
   - zone1
   - zone2
 - name: charlie
-  replicas: 2
+  replicas: 0
   zones:
   - zone2
-- name: dave
-  replicas: 2
-  zones:
-  - zone3
