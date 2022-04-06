@@ -5,6 +5,7 @@ kind: Service
 
 metadata:
   name: hello-{{ .name }}-service
+  namespace: hello
 
 spec:
   ports:

@@ -4,6 +4,7 @@ apiVersion: autoscaling/v2
 kind: HorizonalPodAutoscaler
 metadata:
   name: hello-{{ .name }}-autoscaler
+  namespace: hello
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
