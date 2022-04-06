@@ -5,9 +5,9 @@ kind: Deployment
 
 metadata:
   name: hello-{{ .name }}-deployment
-  namespace: hello
 
 spec:
+  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
