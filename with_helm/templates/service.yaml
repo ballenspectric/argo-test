@@ -5,12 +5,13 @@ kind: Service
 
 metadata:
   name: hello-{{ .name }}-service
-  labels:
-    run: hello-{{ .name }}-service
 
 spec:
   ports:
   - port: 80
+    targetPort: 8080
+    protocol: TCP
+
   selector:
-    run: hello-{{ .name }}-service
+    app: hello-{{ .name }}
 {{- end }}
