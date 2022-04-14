@@ -4,7 +4,8 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: {{ $.Values.cluster_name }}-hello-{{ .name }}
+  name: hello-{{ .name }}
+  cluster: {{ $.Values.cluster_name }}
 
 spec:
   replicas: {{ .replicas }}
@@ -15,6 +16,7 @@ spec:
     metadata:
       labels:
         app: hello-{{ .name }}
+        cluster: {{ $.Values.cluster_name }}
     spec:
       containers:
       - image: ghcr.io/ballenspectric/hello-world-webserver:master
