@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: {{ .Values.cluster_name }}-hello-{{ .name }}
+  name: {{ $.Values.cluster_name }}-hello-{{ .name }}
 
 spec:
   replicas: {{ .replicas }}
