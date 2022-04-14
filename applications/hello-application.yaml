@@ -9,7 +9,7 @@ spec:
   project: hello-proj
 
   source:
-    repoURL: git@github.com:ballenspectric/argo-test.git
+    repoURL: https://github.com/ballenspectric/argo-test.git
     path: with_helm
     targetRevision: HEAD
     helm:
