@@ -4,11 +4,10 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: hello-{{ .name }}
+  name: {{ .Values.cluster_name }}-hello-{{ .name }}
 
 spec:
-  replicas: 1
-  revisionHistoryLimit: 3
+  replicas: {{ .replicas }}
   selector:
     matchLabels:
       app: hello-{{ .name }}
@@ -17,17 +16,6 @@ spec:
       labels:
         app: hello-{{ .name }}
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: topology.kubernetes.io/zone
-                operator: In
-                values:
-                  {{- range .zones }}
-                  - {{ . }}
-                  {{- end }}
       containers:
       - image: ghcr.io/ballenspectric/hello-world-webserver:master
         name: hello-{{ .name }}
@@ -36,9 +24,4 @@ spec:
         env:
         - name: WHO
           value: {{ .name }}
-        resources:
-          limits:
-            cpu: 500m
-          requests:
-            cpu: 100m
 {{- end }}

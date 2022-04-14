@@ -1,0 +1,22 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello
+  namespace: argocd
+
+spec:
+  project: hello-proj
+
+  source:
+    repoURL: git@github.com:ballenspectric/argo-test.git
+    path: with_helm
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - ../common_values.yaml
+        - values.yaml
+
+    destination:
+      server: https://kuberetes.default.svc
+      namespace: hello

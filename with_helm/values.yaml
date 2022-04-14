@@ -1,11 +1,7 @@
 deployments:
 - name: alice
-  zones:
-  - zone1
+  replicas: 1
 - name: bob
-  zones:
-  - zone1
-  - zone2
+  replicas: 2
 - name: charlie
-  zones:
-  - zone2
+  replicas: 3
