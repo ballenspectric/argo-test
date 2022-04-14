@@ -17,6 +17,6 @@ spec:
         - ../common_values.yaml
         - values.yaml
 
-    destination:
-      server: https://kuberetes.default.svc
-      namespace: hello
+  destination:
+    server: https://kuberetes.default.svc
+    namespace: hello
