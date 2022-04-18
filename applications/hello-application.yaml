@@ -20,3 +20,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: hello
+
+  syncPolicy:
+    automated:
+      prune: true
