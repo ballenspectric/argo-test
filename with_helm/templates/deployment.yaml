@@ -4,21 +4,21 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: hello-{{ .name }}-{{ .Release.Namespace }}
+  name: hello-{{ .name }}-{{ $.Release.Namespace }}
 
 spec:
   replicas: {{ .replicas }}
   selector:
     matchLabels:
-      app: hello-{{ .name }}-{{ .Release.Namespace }}
+      app: hello-{{ .name }}-{{ $.Release.Namespace }}
   template:
     metadata:
       labels:
-        app: hello-{{ .name }}-{{ .Release.Namespace }}
+        app: hello-{{ .name }}-{{ $.Release.Namespace }}
     spec:
       containers:
       - image: ghcr.io/ballenspectric/hello-world-webserver:master
-        name: hello-{{ .name }}-{{ .Release.Namespace }}
+        name: hello-{{ .name }}-{{ $.Release.Namespace }}
         ports:
         - containerPort: 8080
         env:
