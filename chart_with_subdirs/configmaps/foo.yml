@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metdata:
+  name: foo
+  namespace: argocd-test
+data:
+  foo.ini: |
+    name=foo
